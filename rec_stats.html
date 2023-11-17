@@ -88,61 +88,70 @@
 <script>
   // Sample data
   const data = [
-  { player: 'Abraham Sali', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Tyler Kotovsky', team: 'Team 1', gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Cameron Warren', team: 'Team 1', gamesPlayed: 1, goals: 2, assists: 4 },
-  { player: 'Christine Rooney', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 1 },
-  { player: 'Eric Paulauskas', team: 'Team 1', gamesPlayed: 1, goals: 2, assists: 2 },
+  { player: 'Abraham Sali', team: 'Team 1', gamesPlayed: 2, goals: 0, assists: 0 },
+  { player: 'Cameron Warren', team: 'Team 1', gamesPlayed: 2, goals: 3, assists: 6 },
+  { player: 'Christine Rooney', team: 'Team 1', gamesPlayed: 2, goals: 1, assists: 3 },
+  { player: 'Eric Paulauskas', team: 'Team 1', gamesPlayed: 2, goals: 3, assists: 3 },
   { player: 'Grant Carlson', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Jack Wolf', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Jeremiah Matthews', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 3 },
-  { player: 'Jim Apple', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 0 },
+  { player: 'Jack Wolf', team: 'Team 1', gamesPlayed: 2, goals: 5, assists: 0 },
+  { player: 'Jeremiah Matthews', team: 'Team 1', gamesPlayed: 2, goals: 1, assists: 3 },
+  { player: 'Jim Apple', team: 'Team 1', gamesPlayed: 2, goals: 0, assists: 0 },
   { player: 'Jorge Rangel', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Justin Forman', team: 'Team 1', gamesPlayed: 1, goals: 2, assists: 1 },
+  { player: 'Justin Forman', team: 'Team 1', gamesPlayed: 2, goals: 3, assists: 3 },
+  { player: 'Mark Ruthenberg', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 2 },
   { player: 'Riley Bear', team: 'Team 1', gamesPlayed: 0, goals: 0, assists: 0 },
   { player: 'Stephan Hartig', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'William O\'neill', team: 'Team 1', gamesPlayed: 1, goals: 0, assists: 2 },
+  { player: 'Tyler Kotovsky', team: 'Team 1', gamesPlayed: 0, goals: 0, assists: 0 },
+  { player: 'William O\'neill', team: 'Team 1', gamesPlayed: 2, goals: 0, assists: 2 },
   { player: 'Becca Napoli**', team: 'Team 1', gamesPlayed: 1, goals: 2, assists: 1 },
+  { player: 'Lu Guerrero**', team: 'Team 1', gamesPlayed: 1, goals: 1, assists: 0 },
+  { player: 'Sam Epstein**', team: 'Team 1', gamesPlayed: 1, goals: 2, assists: 1 },
+  { player: 'Rica Garcia**', team: 'Team 1', gamesPlayed: 1, goals: 1, assists: 1 },
+  { player: 'Anderson Canon**', team: 'Team 1', gamesPlayed: 1, goals: 1, assists: 3 },
 
 
 
-  { player: 'Don Juan Diaz', team: 'Team 2', gamesPlayed: 1, goals: 5, assists: 1 },
+  { player: 'Camille Panggat', team: 'Team 2', gamesPlayed: 2, goals: 3, assists: 0 },
+  { player: 'Chris Jones', team: 'Team 2', gamesPlayed: 2, goals: 0, assists: 3 },
+  { player: 'Courtney Rachke', team: 'Team 2', gamesPlayed: 2, goals: 3, assists: 1 },
+  { player: 'Don Juan Diaz', team: 'Team 2', gamesPlayed: 2, goals: 7, assists: 3 },
   { player: 'Elliott DeGrace', team: 'Team 2', gamesPlayed: 1, goals: 0, assists: 2},
-  { player: 'Micheel Garcia', team: 'Team 2', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Sidi Huang', team: 'Team 2', gamesPlayed: 1, goals: 2, assists: 0 },
-  { player: 'Camille Panggat', team: 'Team 2', gamesPlayed: 1, goals: 1, assists: 0 },
-  { player: 'Chris Jones', team: 'Team 2', gamesPlayed: 1, goals: 0, assists: 2 },
-  { player: 'Courtney Rachke', team: 'Team 2', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Ethan Benenson', team: 'Team 2', gamesPlayed: 1, goals: 2, assists: 3 },
-  { player: 'Gabriel Gutierrez', team: 'Team 2', gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Jonathan SooHoo', team: 'Team 2', gamesPlayed: 1, goals: 0, assists: 2 },
-  { player: 'Marcos Tapia', team: 'Team 2', gamesPlayed: 1, goals: 2, assists: 1 },
-  { player: 'Raphael Rosen', team: 'Team 2', gamesPlayed: 1, goals: 1, assists: 2 },
+  { player: 'Ethan Benenson', team: 'Team 2', gamesPlayed: 2, goals: 2, assists: 5 },
+  { player: 'Gabriel Gutierrez', team: 'Team 2', gamesPlayed: 1, goals: 0, assists: 2 },
+  { player: 'Jonathan SooHoo', team: 'Team 2', gamesPlayed: 2, goals: 0, assists: 2 },
+  { player: 'Julie Shizas', team: 'Team 2', gamesPlayed: 1, goals: 5, assists: 0 },
+  { player: 'Marcos Tapia', team: 'Team 2', gamesPlayed: 2, goals: 3, assists: 1 },
+  { player: 'Micheel Garcia', team: 'Team 2', gamesPlayed: 2, goals: 0, assists: 3 },
+  { player: 'Raphael Rosen', team: 'Team 2', gamesPlayed: 2, goals: 1, assists: 4 },
   { player: 'Rob Gross', team: 'Team 2', gamesPlayed: 0, goals: 0, assists: 0 },
   { player: 'Sam Bove', team: 'Team 2', gamesPlayed: 1, goals: 1, assists: 0 },
-  { player: 'Shravan Ravishankar', team: 'Team 2', gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Alyssa Dunbar', team: 'Team 2', gamesPlayed: 0, goals: 0, assists: 0 },
+  { player: 'Shravan Ravishankar', team: 'Team 2', gamesPlayed: 1, goals: 1, assists: 1 },
+  { player: 'Sidi Huang', team: 'Team 2', gamesPlayed: 1, goals: 2, assists: 0 },
+  { player: 'Alyssa Dunbar**', team: 'Team 2', gamesPlayed: 0, goals: 0, assists: 0 },
+  
+  
 
 
+  { player: 'Adele Wilhelm', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
+  { player: 'Antonia Van Twisk', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
+  { player: 'Byron Arellano', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 2 },
+  { player: 'Caleb Barac', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 0 },
+  { player: 'Ethan Datwyler', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 2 },
+  { player: 'Graham Brisben', team: 'Team 3', gamesPlayed: 0, goals: 0, assists: 0 },
+  { player: 'Hoyu Liu', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 0 },
+  { player: 'Ibrahim Bahojic', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
+  { player: 'Johnathan Mika', team: 'Team 3', gamesPlayed: 0, goals: 0, assists: 0 },
+  { player: 'Justin Prevost', team: 'Team 3', gamesPlayed: 0, goals: 0, assists: 0 },
+  { player: 'Kimberly Lu', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
+  { player: 'Malik Pintado-Vertner', team: 'Team 3', gamesPlayed: 1, goals: 3, assists: 0 },
+  { player: 'Paul Meyer', team: 'Team 3', gamesPlayed: 0, goals: 0, assists: 0 },
+  { player: 'Tim Christian', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
+  { player: 'Meave Hickey**', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 2 },
+  { player: 'Kelly Kulig**', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 1 },
+  { player: 'Cade Heikes**', team: 'Team 3', gamesPlayed: 1, goals: 2, assists: 2 },
+  { player: 'Milan Rivas**', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
 
-
-  { player: 'Christian Contreras', team: 'Team 5', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Colleen Bertoni', team: 'Team 5', gamesPlayed: 1, goals: 1, assists: 0 },
-  { player: 'Darwin Chen', team: 'Team 5', gamesPlayed: 1, goals: 0, assists: 3 },
-  { player: 'Edith Jaucian', team: 'Team 5', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Galvin Kao', team: 'Team 5', gamesPlayed: 1, goals: 5, assists: 0 },
-  { player: 'Hector Moreno', team: 'Team 5', gamesPlayed: 1, goals: 2, assists: 0 },
-  { player: 'Jack Pio', team: 'Team 5', gamesPlayed: 1, goals: 2, assists: 2 },
-  { player: 'Juan Amador', team: 'Team 5', gamesPlayed: 1, goals: 2, assists: 1 },
-  { player: 'Michael Reeves', team: 'Team 5', gamesPlayed: 1, goals: 1, assists: 0 },
-  { player: 'Michael Woo', team: 'Team 5', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Michaela Wellems', team: 'Team 5', gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Steven Wagner', team: 'Team 5', gamesPlayed: 1, goals: 0, assists: 2 },
-  { player: 'Tanner Boyle', team: 'Team 5', gamesPlayed: 1, goals: 0, assists: 2 },
-  { player: 'Will Setchell', team: 'Team 5', gamesPlayed: 1, goals: 1, assists: 0 },
-
-
-
+  
   { player: 'Alex Rubin', team: 'Team 4', gamesPlayed: 1, goals: 0, assists: 3 },
   { player: 'Christian Cameron', team: 'Team 4', gamesPlayed: 1, goals: 4, assists: 0 },
   { player: 'Damen Erf', team: 'Team 4', gamesPlayed: 1, goals: 1, assists: 1 },
@@ -157,7 +166,28 @@
   { player: 'Numen Rubino', team: 'Team 4', gamesPlayed: 1, goals: 1, assists: 0 },
   { player: 'Parker Swanson', team: 'Team 4', gamesPlayed: 1, goals: 0, assists: 1 },
   { player: 'Ryan Anderson', team: 'Team 4', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Javiela Estevez**', team: 'Team 4', gamesPlayed: 1, goals: 0, assists: 0 }
+  { player: 'Javiela Estevez**', team: 'Team 4', gamesPlayed: 1, goals: 0, assists: 0 },
+
+
+
+
+  { player: 'Christian Contreras', team: 'Team 5', gamesPlayed: 2, goals: 0, assists: 1 },
+  { player: 'Colleen Bertoni', team: 'Team 5', gamesPlayed: 2, goals: 1, assists: 0 },
+  { player: 'Darwin Chen', team: 'Team 5', gamesPlayed: 2, goals: 3, assists: 3 },
+  { player: 'Edith Jaucian', team: 'Team 5', gamesPlayed: 2, goals: 1, assists: 1 },
+  { player: 'Galvin Kao', team: 'Team 5', gamesPlayed: 2, goals: 7, assists: 2 },
+  { player: 'Hector Moreno', team: 'Team 5', gamesPlayed: 2, goals: 2, assists: 1 },
+  { player: 'Jack Pio', team: 'Team 5', gamesPlayed: 2, goals: 5, assists: 5 },
+  { player: 'Juan Amador', team: 'Team 5', gamesPlayed: 2, goals: 2, assists: 2 },
+  { player: 'Michael Reeves', team: 'Team 5', gamesPlayed: 2, goals: 2, assists: 0 },
+  { player: 'Michael Woo', team: 'Team 5', gamesPlayed: 2, goals: 0, assists: 0 },
+  { player: 'Michaela Wellems', team: 'Team 5', gamesPlayed: 0, goals: 0, assists: 0 },
+  { player: 'Steven Wagner', team: 'Team 5', gamesPlayed: 2, goals: 1, assists: 3 },
+  { player: 'Tanner Boyle', team: 'Team 5', gamesPlayed: 2, goals: 0, assists: 3 },
+  { player: 'Will Setchell', team: 'Team 5', gamesPlayed: 1, goals: 1, assists: 0 },
+  { player: 'Samuel Kerner**', team: 'Team 5', gamesPlayed: 1, goals: 1, assists: 3 },
+
+
 
 
   
@@ -224,6 +254,7 @@
 
   // Initial render
   sortColumn = 'goals';
+  data.sort((a, b) => sortOrder ? d3.ascending(a.player, b.player) : -d3.ascending(a.player, b.player));
   data.sort((a, b) => sortOrder ? d3.descending(a.assists, b.assists) : -d3.descending(a.assists, b.assists));
   data.sort((a, b) => sortOrder ? d3.descending(a.goals, b.goals) : -d3.descending(a.goals, b.goals));
   renderTable(data);
