@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scrollable Sortable Tables with d3.js</title>
   <style>
+    
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; /* Remove default margin to fully utilize the page width */
-    }
+        font-family: 'Big Shoulders Text', sans-serif; /* Updated font-family */
+        margin: 0;
+      }
 
     table {
       border-collapse: collapse;
       width: 100%;
       margin-top: 20px;
+      font-size: 14px; /* Added font-size */
+      font-family: 'Big Shoulders Text', sans-serif; /* Added font-family */
+      font-weight: bold; /* Added font-weight */
     }
 
     th, td {
@@ -150,7 +154,7 @@
   // Fetch data from the leaderboard.json file
   async function fetchData() {
     try {
-      const response = await fetch('https://github.com/harshm16/indoor_league_stats_tables/leaderboard.json');
+      const response = await fetch('https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/main/leaderboard.json');
       const data = await response.json();
       return data;
     } catch (error) {
@@ -158,32 +162,98 @@
     }
   }
 
-  // Sample data for the competitive league
-  let data = [];
-  // Sample data for the recreational league
-  let recreationalData = [];
+  // Initial sort order for the competitive league (ascending)
+  let sortOrder = true;
+  let sortColumn = null;
 
-  // (Existing code for rendering tables, sorting, etc.)
+  // Initial sort order for the recreational league (ascending)
+  let recreationalSortOrder = true;
+  let recreationalSortColumn = null;
+
+  // Function to render the competitive league table
+  function renderTable(data) {
+    const tableBody = d3.select('#sortable-table tbody');
+
+    // Remove existing rows
+    tableBody.selectAll('*').remove();
+
+    // Append new rows
+    const rows = tableBody.selectAll('tr')
+      .data(data)
+      .enter()
+      .append('tr');
+
+    // Append cells within each row
+    rows.selectAll('td')
+      .data(d => Object.values(d))
+      .enter()
+      .append('td')
+      .text(d => d);
+  }
+
+  // Function to render the recreational league table
+  function renderRecreationalTable(data) {
+    const tableBody = d3.select('#sortable-table-recreational tbody');
+
+    // Remove existing rows
+    tableBody.selectAll('*').remove();
+
+    // Append new rows
+    const rows = tableBody.selectAll('tr')
+      .data(data)
+      .enter()
+      .append('tr');
+
+    // Append cells within each row
+    rows.selectAll('td')
+      .data(d => Object.values(d))
+      .enter()
+      .append('td')
+      .text(d => d);
+  }
+
+  // Function to update sort arrows for the competitive league
+  function updateSortArrows() {
+    d3.selectAll('#sortable-table th .sort-arrow').text('');
+
+    if (sortColumn !== null) {
+      const arrowText = sortOrder ? '↑' : '↓';
+      d3.select(`#sortable-table th[data-column="${sortColumn}"] .sort-arrow`).text(arrowText);
+    }
+  }
+
+  // Function to update sort arrows for the recreational league
+  function updateRecreationalSortArrows() {
+    d3.selectAll('#sortable-table-recreational th .sort-arrow').text('');
+
+    if (recreationalSortColumn !== null) {
+      const arrowText = recreationalSortOrder ? '↑' : '↓';
+      d3.select(`#sortable-table-recreational th[data-column="${recreationalSortColumn}"] .sort-arrow`).text(arrowText);
+    }
+  }
 
   // Initial render for the competitive league
   sortColumn = 'record';
   // Fetch competitive league data
   fetchData().then(leaderboardData => {
-    data = leaderboardData.comp_league;
-    data.sort((a, b) => sortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
-    data.sort((a, b) => sortOrder ? d3.descending(a.points, b.points) : -d3.descending(a.points, b.points));
-    data.sort((a, b) => {
-      const [aWins, aLosses] = a.record.split('-').map(Number);
-      const [bWins, bLosses] = b.record.split('-').map(Number);
-      if (aWins > bWins) {
+    compData = leaderboardData.comp_league;
+    compData.sort((a, b) => sortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
+    compData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
+      compData.sort((a, b) => {
+    const [aWins, aLosses] = a.record.split('-').map(Number);
+    const [bWins, bLosses] = b.record.split('-').map(Number);
+
+    // Sort in descending order of wins
+    if (aWins > bWins) {
         return -1;
-      } else if (aWins < bWins) {
+    } else if (aWins < bWins) {
         return 1;
-      } else {
+    } else {
+        // If wins are the same, sort in ascending order of losses
         return aLosses - bLosses;
-      }
-    });
-    renderTable(data);
+    }
+});
+    renderTable(compData);
     updateSortArrows();
   });
 
@@ -193,18 +263,21 @@
   fetchData().then(leaderboardData => {
     recreationalData = leaderboardData.rec_league;
     recreationalData.sort((a, b) => recreationalSortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
-    recreationalData.sort((a, b) => recreationalSortOrder ? d3.descending(a.points, b.points) : -d3.descending(a.points, b.points));
+    recreationalData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
     recreationalData.sort((a, b) => {
-      const [aWins, aLosses] = a.record.split('-').map(Number);
-      const [bWins, bLosses] = b.record.split('-').map(Number);
-      if (aWins > bWins) {
+    const [aWins, aLosses] = a.record.split('-').map(Number);
+    const [bWins, bLosses] = b.record.split('-').map(Number);
+
+    // Sort in descending order of wins
+    if (aWins > bWins) {
         return -1;
-      } else if (aWins < bWins) {
+    } else if (aWins < bWins) {
         return 1;
-      } else {
+    } else {
+        // If wins are the same, sort in ascending order of losses
         return aLosses - bLosses;
-      }
-    });
+    }
+});
     renderRecreationalTable(recreationalData);
     updateRecreationalSortArrows();
   });
