@@ -73,7 +73,7 @@
       <tr>
         <th data-column="player">Player <span class="sort-arrow"></span></th>
         <th data-column="team">Team <span class="sort-arrow"></span></th>
-        <th data-column="gamesPlayed">Games <span class="sort-arrow"></span></th>
+        <th data-column="gamesPlayed">Games<span class="sort-arrow"></span></th>
         <th data-column="goals">Goals <span class="sort-arrow"></span></th>
         <th data-column="assists">Assists <span class="sort-arrow"></span></th>
       </tr>
@@ -86,174 +86,81 @@
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-  // Sample data
-  const data = [
+  // Fetch data from JSON file
+  fetch('https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/main/stats.json')
+    .then(response => response.json())
+    .then(data => {
+      // Use the first league data for this example, you can modify as needed
+      const leagueData = data.comp_league;
 
-  
-  { player: 'Aubree Zenone', team: 'Team 1',  gamesPlayed: 1, goals: 1, assists: 0 },
-  { player: 'Emilie Willingham', team: 'Team 1',  gamesPlayed: 2, goals: 1, assists: 9 },
-  { player: 'Jerry Kelly', team: 'Team 1',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Jonathan Alton', team: 'Team 1',  gamesPlayed: 2, goals: 0, assists: 0 },
-  { player: 'Josh Deeman', team: 'Team 1',  gamesPlayed: 2, goals: 1, assists: 0 },
-  { player: 'Katy Ross', team: 'Team 1',  gamesPlayed: 2, goals: 1, assists: 0 },
-  { player: 'ManHua Zhu', team: 'Team 1',  gamesPlayed: 2, goals: 2, assists: 5 },
-  { player: 'Sam Gabrielson', team: 'Team 1',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Scott Hearne', team: 'Team 1',  gamesPlayed: 2, goals: 4, assists: 3 },
-  { player: 'Steve Jeka', team: 'Team 1',  gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Theo Trefonides', team: 'Team 1',  gamesPlayed: 2, goals: 1, assists: 1 },
-  { player: 'Tyler Smiles', team: 'Team 1',  gamesPlayed: 2, goals: 5, assists: 1 },
-  { player: 'Vedant Sachdeva', team: 'Team 1',  gamesPlayed: 2, goals: 7, assists: 1 },
-  { player: 'Edith Jaucian**', team: 'Team 1',  gamesPlayed: 1, goals: 1, assists: 1 },
-  { player: 'Juan Amador**', team: 'Team 1',  gamesPlayed: 1, goals: 2, assists: 0 },
-  { player: 'Tanner Boyle**', team: 'Team 1',  gamesPlayed: 1, goals: 0, assists: 2 },
-  { player: 'Ethan Beneson**', team: 'Team 1',  gamesPlayed: 1, goals: 1, assists: 3 },
-  { player: 'Tim Fergus**', team: 'Team 1',  gamesPlayed: 1, goals: 0, assists: 1 },
-  { player: 'Julia Schratz**', team: 'Team 1',  gamesPlayed: 1, goals: 1, assists: 1 },
-    
+      // Initial sort order (ascending)
+      let sortOrder = true;
+      let sortColumn = null;
 
-  { player: 'Andrew Sjogren', team: 'Team 2',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Angela Wang', team: 'Team 2',  gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Dale Decatur', team: 'Team 2',  gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'George Irving', team: 'Team 2',  gamesPlayed: 2, goals: 1, assists: 0 },
-  { player: 'Grant Harris', team: 'Team 2',  gamesPlayed: 1, goals: 2, assists: 1 },
-  { player: 'Jonathan Schrag', team: 'Team 2',  gamesPlayed: 2, goals: 3, assists: 0 },
-  { player: 'Joseph Sifakis', team: 'Team 2',  gamesPlayed: 2, goals: 4, assists: 1 },
-  { player: 'Meryl Davis', team: 'Team 2',  gamesPlayed: 2, goals: 2, assists: 1 },
-  { player: 'Nathan Goff', team: 'Team 2',  gamesPlayed: 1, goals: 1, assists: 2 },
-  { player: 'Rica Garcia', team: 'Team 2',  gamesPlayed: 2, goals: 1, assists: 0 },
-  { player: 'Sydney Stelzer', team: 'Team 2',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Tommy Alford', team: 'Team 2',  gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Wyatt DeYoung', team: 'Team 2',  gamesPlayed: 2, goals: 3, assists: 3 },
-  { player: 'Cassie Brown**', team: 'Team 2',  gamesPlayed: 2, goals: 5, assists: 7 },
-  { player: 'Elliot Trotter**', team: 'Team 2',  gamesPlayed: 2, goals: 3, assists: 6 },
-  { player: 'Ian Falck**', team: 'Team 2',  gamesPlayed: 1, goals: 0, assists: 1  },
-  { player: 'Sam Kaminsky**', team: 'Team 2',  gamesPlayed: 1, goals: 0, assists: 2  },
-  { player: 'Hana Cheng**', team: 'Team 2',  gamesPlayed: 1, goals: 0, assists: 1  },
+      // Function to render the table
+      function renderTable(data) {
+        const tableBody = d3.select('#sortable-table tbody');
 
+        // Remove existing rows
+        tableBody.selectAll('*').remove();
 
-  { player: 'Anyela Garcés', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Benjamin Zhang', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Elaine Sundberg', team: 'Team 3', gamesPlayed: 1, goals: 2, assists: 0 },
-  { player: 'Harsh Mishra', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 1 },
-  { player: 'Jade Hostein', team: 'Team 3', gamesPlayed: 1, goals: 2, assists: 1 },
-  { player: 'Jordan Lange', team: 'Team 3', gamesPlayed: 1, goals: 2, assists: 0 },
-  { player: 'Max Lang', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 2 },
-  { player: 'Nate Boddy', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 0 },
-  { player: 'Nico Lake', team: 'Team 3', gamesPlayed: 1, goals: 2, assists: 0 },
-  { player: 'Risa Umeno', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 2 },
-  { player: 'Seho Young', team: 'Team 3', gamesPlayed: 1, goals: 3, assists: 1 },
-  { player: 'Will Hsieh', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 3 },
-  { player: 'Zach Kieffer', team: 'Team 3', gamesPlayed: 1, goals: 1, assists: 2 },
-  { player: 'Lu Guerrero**', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 3 },
-  { player: 'Wilson Matthews**', team: 'Team 3', gamesPlayed: 1, goals: 0, assists: 0 },
+        // Append new rows
+        const rows = tableBody.selectAll('tr')
+          .data(data)
+          .enter()
+          .append('tr');
 
+        // Append cells within each row
+        rows.selectAll('td')
+          .data(d => Object.values(d))
+          .enter()
+          .append('td')
+          .text(d => d);
+      }
 
-  { player: 'Anderson', team: 'Team 4',  gamesPlayed: 1, goals: 1, assists: 3 },
-  { player: 'Asa Bowen', team: 'Team 4',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Becca Napoli', team: 'Team 4',  gamesPlayed: 1, goals: 2, assists: 1 },
-  { player: 'Jack Shanahan', team: 'Team 4',  gamesPlayed: 1, goals: 0, assists: 3 },
-  { player: 'Joel Willison', team: 'Team 4',  gamesPlayed: 1, goals: 6, assists: 1 },
-  { player: 'Josh Kapilivsky', team: 'Team 4',  gamesPlayed: 1, goals: 1, assists: 1 },
-  { player: 'Jules Epstein', team: 'Team 4',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Kylie Chesner', team: 'Team 4',  gamesPlayed: 1, goals: 1, assists: 0 },
-  { player: 'Luke Brennan', team: 'Team 4',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Maggie Paoli', team: 'Team 4',  gamesPlayed: 1, goals: 2, assists: 1 },
-  { player: 'Penelope Wu', team: 'Team 4',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Ray Mauntel', team: 'Team 4',  gamesPlayed: 1, goals: 0, assists: 1 },
-  { player: 'Reid Martin', team: 'Team 4',  gamesPlayed: 1, goals: 0, assists: 4 },
-  { player: 'Justin Foreman**', team: 'Team 4',  gamesPlayed: 1, goals: 2, assists: 0 },
+      // Function to update sort arrows
+      function updateSortArrows() {
+        d3.selectAll('#sortable-table th .sort-arrow').text('');
 
+        if (sortColumn !== null) {
+          const arrowText = sortOrder ? '↑' : '↓';
+          d3.select(`#sortable-table th[data-column="${sortColumn}"] .sort-arrow`).text(arrowText);
+        }
+      }
 
+      // Add sorting functionality using d3.js
+      d3.selectAll('#sortable-table th')
+        .on('click', function () {
+          const column = d3.select(this).attr('data-column');
 
-  { player: 'Andrew Patel', team: 'Team 5',  gamesPlayed: 1, goals: 0, assists: 2 },
-  { player: 'Annie Phan', team: 'Team 5',  gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Cade Heikes', team: 'Team 5',  gamesPlayed: 1, goals: 2, assists: 1 },
-  { player: 'Ellie Cloe', team: 'Team 5',  gamesPlayed: 2, goals: 0, assists: 1 },
-  { player: 'Jocelyn Sun', team: 'Team 5',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Kelly Kulig', team: 'Team 5',  gamesPlayed: 2, goals: 2, assists: 0 },
-  { player: 'Matthew Goetsch', team: 'Team 5',  gamesPlayed: 1, goals: 0, assists: 1 },
-  { player: 'Max Mercer', team: 'Team 5',  gamesPlayed: 2, goals: 1, assists: 4 },
-  { player: 'Milan Rivas', team: 'Team 5',  gamesPlayed: 1, goals: 3, assists: 4 },
-  { player: 'Ricky Ramirez', team: 'Team 5',  gamesPlayed: 2, goals: 2, assists: 3 },
-  { player: 'Sean Mc Sweeney', team: 'Team 5',  gamesPlayed: 1, goals: 1, assists: 1 },
-  { player: 'Tavis Leighton', team: 'Team 5',  gamesPlayed: 0, goals: 0, assists: 0 },
-  { player: 'Tyler Mitchuson', team: 'Team 5',  gamesPlayed: 2, goals: 1, assists: 0 },
-  { player: 'Eric Paulauskas**', team: 'Team 5',  gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Tim Schoch**', team: 'Team 5',  gamesPlayed: 2, goals: 4, assists: 2 },
-  { player: 'Miki**', team: 'Team 5',  gamesPlayed: 1, goals: 0, assists: 0 },
-  { player: 'Christian Cameron**', team: 'Team 5',  gamesPlayed: 1, goals: 3, assists: 0 },
-  { player: 'Anthony Scibelli**', team: 'Team 5',  gamesPlayed: 1, goals: 1, assists: 1 },
-  { player: 'Simeone Eby**', team: 'Team 5',  gamesPlayed: 1, goals: 0, assists: 0 }
-  
-];
+          // Toggle sort order if the same column is clicked
+          sortOrder = column === sortColumn ? !sortOrder : true;
 
-  // Initial sort order (ascending)
-  let sortOrder = true;
-  let sortColumn = null;
+          // Update the sort column
+          sortColumn = column;
 
-  // Function to render the table
-  function renderTable(data) {
-    const tableBody = d3.select('#sortable-table tbody');
+          // Sort data based on the selected column and sort order
+          leagueData.sort((a, b) => {
+            const comparison = d3.ascending(a[column], b[column]);
+            return sortOrder ? comparison : -comparison;
+          });
 
-    // Remove existing rows
-    tableBody.selectAll('*').remove();
+          // Render the sorted table
+          renderTable(leagueData);
 
-    // Append new rows
-    const rows = tableBody.selectAll('tr')
-      .data(data)
-      .enter()
-      .append('tr');
+          // Update sort arrows
+          updateSortArrows();
+        });
 
-    // Append cells within each row
-    rows.selectAll('td')
-      .data(d => Object.values(d))
-      .enter()
-      .append('td')
-      .text(d => d);
-  }
-
-  // Function to update sort arrows
-  function updateSortArrows() {
-    d3.selectAll('#sortable-table th .sort-arrow').text('');
-
-    if (sortColumn !== null) {
-      const arrowText = sortOrder ? '↑' : '↓';
-      d3.select(`#sortable-table th[data-column="${sortColumn}"] .sort-arrow`).text(arrowText);
-    }
-  }
-
-  // Add sorting functionality using d3.js
-  d3.selectAll('#sortable-table th')
-    .on('click', function () {
-      const column = d3.select(this).attr('data-column');
-
-      // Toggle sort order if the same column is clicked
-      sortOrder = column === sortColumn ? !sortOrder : true;
-
-      // Update the sort column
-      sortColumn = column;
-
-      // Sort data based on the selected column and sort order
-      data.sort((a, b) => {
-        const comparison = d3.ascending(a[column], b[column]);
-        return sortOrder ? comparison : -comparison;
-      });
-
-      // Render the sorted table
-      renderTable(data);
-
-      // Update sort arrows
+      // Initial render
+      sortColumn = 'goals';
+      leagueData.sort((a, b) => sortOrder ? d3.ascending(a.player, b.player) : -d3.ascending(a.player, b.player));
+      leagueData.sort((a, b) => sortOrder ? d3.descending(a.assists, b.assists) : -d3.descending(a.assists, b.assists));
+      leagueData.sort((a, b) => sortOrder ? d3.descending(a.goals, b.goals) : -d3.descending(a.goals, b.goals));
+      renderTable(leagueData);
       updateSortArrows();
-    });
-
-  // Initial render
-  sortColumn = 'goals';
-  data.sort((a, b) => sortOrder ? d3.ascending(a.player, b.player) : -d3.ascending(a.player, b.player));
-  data.sort((a, b) => sortOrder ? d3.descending(a.assists, b.assists) : -d3.descending(a.assists, b.assists));
-  data.sort((a, b) => sortOrder ? d3.descending(a.goals, b.goals) : -d3.descending(a.goals, b.goals));
-  renderTable(data);
-  updateSortArrows();
-
+    })
+    .catch(error => console.error('Error fetching data:', error));
 </script>
 
 </body>
