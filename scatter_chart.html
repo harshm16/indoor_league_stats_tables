@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatter Plots - Recreational and Competitive Leagues</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&display=swap">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+<!-- Container for the scatter plots -->
+<div id="scatter-plots" style="display: flex;">
+
+  <!-- Container for the Competitive League scatter plot -->
+  <div id="scatter-plot-competitive" style="flex: 1; display: flex; justify-content: center; align-items: center;"></div>
+
+  <!-- Container for the Recreational League scatter plot -->
+  <div id="scatter-plot-recreational" style="flex: 1; display: flex; justify-content: center; align-items: center;"></div>
+
+</div>
+
+<script>
+
+  // Team-color information
+const teamColors = {
+  competitive: {
+    'Team 1': 'Blue',
+    'Team 2': 'Red',
+    'Team 3': 'Purple',
+    'Team 4': 'Black',
+    'Team 5': 'White'
+  },
+  recreational: {
+    'Team 1': 'White',
+    'Team 2': 'Black',
+    'Team 3': 'Purple',
+    'Team 4': 'Blue',
+    'Team 5': 'Red'
+  }
+};
+
+// Function to create scatter plot based on JSON data
+function createScatterPlot(containerId, data, title, league) {
+  // Set up SVG dimensions and margins
+  const margin = { top: 40, right: 20, bottom: 80, left: 80 }; // Adjusted margins for better visibility
+  const width = 600 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
+
+  // Create SVG element
+  const svg = d3.select(`#${containerId}`)
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // Scale functions
+  const xScale = d3.scaleLinear().range([0, width]);
+  const yScale = d3.scaleLinear().range([height, 0]);
+
+  // Set the domains
+  xScale.domain([0, d3.max(data, d => d.goals / d.gamesPlayed)]);
+  yScale.domain([0, d3.max(data, d => d.assists / d.gamesPlayed)]);
+
+  // Add circles to represent data points with beautified color scheme
+  svg.selectAll("circle")
+    .data(data)
+    .enter().append("circle")
+    .attr("cx", d => xScale(d.goals / d.gamesPlayed))
+    .attr("cy", d => yScale(d.assists / d.gamesPlayed))
+    .attr("r", 8)
+    .attr("fill", "rgba(65, 182, 230, 0.2)")
+    .attr("stroke", d => getEdgeColor(d.team, league))
+    .attr("stroke-width", 2)
+    .on("mouseover", showTooltip)
+    .on("mouseout", hideTooltip);
+
+  // Add the X Axis with beautified color scheme and label
+  svg.append("g")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(xScale))
+    .selectAll("text")
+    .style("fill", "rgba(1, 1, 1, 1)")
+    .style("font-size", "12px");
+  svg.append("text")
+    .attr("transform", `translate(${width / 2},${height + margin.top + 10})`) // Position text in the center below the x-axis
+    .style("text-anchor", "middle")
+    .style("font-size", "14px")
+    .style("font-family", "'Big Shoulders Text', sans-serif")
+    .style("font-weight", "bold")
+    .text("Goals per Games Played");
+
+
+
+  // Add the Y Axis with beautified color scheme and label
+  svg.append("g")
+    .call(d3.axisLeft(yScale))
+    .selectAll("text")
+    .style("fill", "rgba(1, 1, 1, 1)")
+    .style("font-size", "12px");
+  svg.append("text")
+    .attr("transform", "rotate(-90)") // Rotate text for vertical orientation
+    .attr("y", -margin.left + 25) // Adjust the position to the left of the y-axis
+    .attr("x", -height / 2)
+    .style("text-anchor", "middle")
+    .style("font-size", "14px")
+    .style("font-family", "'Big Shoulders Text', sans-serif")
+    .style("font-weight", "bold")
+    .text("Assists per Games Played");
+
+  // Add title
+  svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", -margin.top / 2)
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .style("font-family", "'Big Shoulders Text', sans-serif")
+    .style("font-weight", "bold")
+    .text(title);
+
+  // Add tooltip
+  const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+  // Tooltip functions
+  function showTooltip(d) {
+    tooltip.transition()
+      .duration(200)
+      .style("opacity", .9);
+    tooltip.html(
+      `<strong>${d.player}</strong><br>Team: ${d.team}<br>Games Played: ${d.gamesPlayed}<br>Goals: ${d.goals}<br>Assists: ${d.assists}`
+    )
+      .style("left", (d3.event.pageX + 5) + "px")
+      .style("top", (d3.event.pageY - 28) + "px")
+      .style("padding", "10px")
+      .style("font-family", "'Big Shoulders Text', sans-serif");
+  }
+
+  function hideTooltip() {
+    tooltip.transition()
+      .duration(500)
+      .style("opacity", 0);
+  }
+
+  // Function to get edge color based on team and league
+  function getEdgeColor(team, league) {
+    const colorMap = league === 'competitive' ? teamColors.competitive : teamColors.recreational;
+    return colorMap[team];
+  }
+}
+
+// Load data from JSON file
+d3.json("https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/master/stats.json")
+  .then(data => {
+    const competitiveData = data.comp_league;
+    const recreationalData = data.rec_league;
+    
+    const filteredCompetitiveData = competitiveData.filter(d => d.gamesPlayed > 0);
+    const filteredRecreationalData = recreationalData.filter(d => d.gamesPlayed > 0);
+
+    // Create scatter plot for Competitive League
+    createScatterPlot("scatter-plot-competitive", filteredCompetitiveData, "Competitive League", 'competitive');
+    
+    // Create scatter plot for Recreational League
+    createScatterPlot("scatter-plot-recreational", filteredRecreationalData, "Recreational League", 'recreational');
+
+
+  })
+  .catch(error => {
+    console.error("Error loading data:", error);
+  });
+</script>
+
+<style>
+    .tooltip {
+      position: absolute;
+      font-family: "Big Shoulders Text", sans-serif;
+      z-index: 9999;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      #scatter-plots {
+        flex-direction: column;
+      }
+
+      #scatter-plot-competitive,
+      #scatter-plot-recreational {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+
+</body>
+</html>
