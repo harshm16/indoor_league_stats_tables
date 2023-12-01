@@ -79,6 +79,7 @@
         <th data-column="gamesPlayed">Games<span class="sort-arrow"></span></th>
         <th data-column="goals">Goals <span class="sort-arrow"></span></th>
         <th data-column="assists">Assists <span class="sort-arrow"></span></th>
+        <th data-column="overall">Goals + Assists <span class="sort-arrow"></span></th>
       </tr>
     </thead>
     <tbody>
@@ -115,7 +116,7 @@
 
         // Append cells within each row
         rows.selectAll('td')
-          .data(d => Object.values(d))
+          .data(d => [...Object.values(d), d.goals + d.assists])
           .enter()
           .append('td')
           .text(d => d);
@@ -144,7 +145,10 @@
 
           // Sort data based on the selected column and sort order
           leagueData.sort((a, b) => {
-            const comparison = d3.ascending(a[column], b[column]);
+            const valueA = column === 'overall' ? a.goals + a.assists : a[column];
+            const valueB = column === 'overall' ? b.goals + b.assists : b[column];
+            const comparison = d3.ascending(valueA, valueB);
+
             return sortOrder ? comparison : -comparison;
           });
 
@@ -156,10 +160,19 @@
         });
 
       // Initial render
-      sortColumn = 'goals';
+      sortColumn = 'overall';
       leagueData.sort((a, b) => sortOrder ? d3.ascending(a.player, b.player) : -d3.ascending(a.player, b.player));
       leagueData.sort((a, b) => sortOrder ? d3.descending(a.assists, b.assists) : -d3.descending(a.assists, b.assists));
       leagueData.sort((a, b) => sortOrder ? d3.descending(a.goals, b.goals) : -d3.descending(a.goals, b.goals));
+      leagueData.sort((a, b) => {
+        if (sortColumn === 'overall') {
+          const overallA = a.goals + a.assists;
+          const overallB = b.goals + b.assists;
+          return sortOrder ? overallB - overallA: overallA - overallB;
+        }
+      });
+
+
       renderTable(leagueData);
       updateSortArrows();
     })
