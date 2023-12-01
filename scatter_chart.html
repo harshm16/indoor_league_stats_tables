@@ -133,6 +133,7 @@ function createScatterPlot(containerId, data, title, league) {
     tooltip.html(
       `<strong>${d.player}</strong><br>Team: ${d.team}<br>Games Played: ${d.gamesPlayed}<br>Goals: ${d.goals}<br>Assists: ${d.assists}`
     )
+
       .style("left", (d3.event.pageX + 5) + "px")
       .style("top", (d3.event.pageY - 28) + "px")
       .style("padding", "10px")
@@ -186,13 +187,36 @@ d3.json("https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/m
     @media only screen and (max-width: 600px) {
       #scatter-plots {
         flex-direction: column;
+        overflow: visible;
       }
 
       #scatter-plot-competitive,
       #scatter-plot-recreational {
         width: 100%;
         margin: 10px 0;
+        overflow: auto; 
       }
+
+      svg {
+        overflow: visible;
+        margin: 40px 0;
+
+      }
+      .axis text {
+        font-size: 10px !important; /* Adjust axis tick font size for better visibility */
+      }
+
+      .axis path,
+      .axis line {
+        display: none; /* Hide axis lines */
+      }
+
+      .tick line {
+        stroke-dasharray: 2, 2; /* Add dashed lines for ticks */
+        stroke-opacity: 0.7; /* Adjust opacity for better visibility */
+      }
+
+
     }
   </style>
 
