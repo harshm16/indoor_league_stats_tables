@@ -60,15 +60,19 @@ function createScatterPlot(containerId, data, title, league) {
   const yScale = d3.scaleLinear().range([height, 0]);
 
   // Set the domains
-  xScale.domain([0, d3.max(data, d => d.goals / d.gamesPlayed)]);
-  yScale.domain([0, d3.max(data, d => d.assists / d.gamesPlayed)]);
+  // xScale.domain([0, d3.max(data, d => d.goals / d.gamesPlayed)]);
+  // yScale.domain([0, d3.max(data, d => d.assists / d.gamesPlayed)]);
+  
+  xScale.domain([0.1 * d3.max(data, d => d.goals), d3.max(data, d => d.goals)]);
+  yScale.domain([0.1 * d3.max(data, d => d.assists), d3.max(data, d => d.assists)]);
+
 
   // Add circles to represent data points with beautified color scheme
   svg.selectAll("circle")
     .data(data)
     .enter().append("circle")
-    .attr("cx", d => xScale(d.goals / d.gamesPlayed))
-    .attr("cy", d => yScale(d.assists / d.gamesPlayed))
+    .attr("cx", d => xScale(d.goals))
+    .attr("cy", d => yScale(d.assists))
     .attr("r", 8)
     .attr("fill", "rgba(65, 182, 230, 0.2)")
     .attr("stroke", d => getEdgeColor(d.team, league))
@@ -159,8 +163,12 @@ d3.json("https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/m
     const competitiveData = data.comp_league;
     const recreationalData = data.rec_league;
     
-    const filteredCompetitiveData = competitiveData.filter(d => d.gamesPlayed > 0);
-    const filteredRecreationalData = recreationalData.filter(d => d.gamesPlayed > 0);
+    // const filteredCompetitiveData = competitiveData.filter(d => d.gamesPlayed > 1);
+    // const filteredRecreationalData = recreationalData.filter(d => d.gamesPlayed > 1);
+
+    const filteredCompetitiveData = competitiveData.filter(d => d.gamesPlayed > 1 && d.goals > 0.1 * d3.max(competitiveData, d => d.goals) && d.assists > 0.1 * d3.max(competitiveData, d => d.assists));
+    const filteredRecreationalData = recreationalData.filter(d => d.gamesPlayed > 1 && d.goals > 0.1 * d3.max(recreationalData, d => d.goals) && d.assists > 0.1 * d3.max(recreationalData, d => d.assists));
+
 
     // Create scatter plot for Competitive League
     createScatterPlot("scatter-plot-competitive", filteredCompetitiveData, "Competitive League", 'competitive');
