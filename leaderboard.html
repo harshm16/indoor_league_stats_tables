@@ -237,22 +237,22 @@
   // Fetch competitive league data
   fetchData().then(leaderboardData => {
     compData = leaderboardData.comp_league;
-    compData.sort((a, b) => sortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
-    compData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
-      compData.sort((a, b) => {
-    const [aWins, aLosses] = a.record.split('-').map(Number);
-    const [bWins, bLosses] = b.record.split('-').map(Number);
+//     compData.sort((a, b) => sortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
+//     compData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
+//       compData.sort((a, b) => {
+//     const [aWins, aLosses] = a.record.split('-').map(Number);
+//     const [bWins, bLosses] = b.record.split('-').map(Number);
 
-    // Sort in descending order of wins
-    if (aWins > bWins) {
-        return -1;
-    } else if (aWins < bWins) {
-        return 1;
-    } else {
-        // If wins are the same, sort in ascending order of losses
-        return aLosses - bLosses;
-    }
-});
+//     // Sort in descending order of wins
+//     if (aWins > bWins) {
+//         return -1;
+//     } else if (aWins < bWins) {
+//         return 1;
+//     } else {
+//         // If wins are the same, sort in ascending order of losses
+//         return aLosses - bLosses;
+//     }
+// });
     renderTable(compData);
     updateSortArrows();
   });
@@ -262,22 +262,22 @@
   // Fetch recreational league data
   fetchData().then(leaderboardData => {
     recreationalData = leaderboardData.rec_league;
-    recreationalData.sort((a, b) => recreationalSortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
-    recreationalData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
-    recreationalData.sort((a, b) => {
-    const [aWins, aLosses] = a.record.split('-').map(Number);
-    const [bWins, bLosses] = b.record.split('-').map(Number);
+    //recreationalData.sort((a, b) => recreationalSortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
+    // recreationalData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
+    // recreationalData.sort((a, b) => {
+    // const [aWins, aLosses] = a.record.split('-').map(Number);
+    // const [bWins, bLosses] = b.record.split('-').map(Number);
 
-    // Sort in descending order of wins
-    if (aWins > bWins) {
-        return -1;
-    } else if (aWins < bWins) {
-        return 1;
-    } else {
-        // If wins are the same, sort in ascending order of losses
-        return aLosses - bLosses;
-    }
-});
+    // // Sort in descending order of wins
+    // if (aWins > bWins) {
+    //     return -1;
+    // } else if (aWins < bWins) {
+    //     return 1;
+    // } else {
+    //     // If wins are the same, sort in ascending order of losses
+    //     return aLosses - bLosses;
+    // }
+// });
     renderRecreationalTable(recreationalData);
     updateRecreationalSortArrows();
   });
