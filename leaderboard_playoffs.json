@@ -1,0 +1,18 @@
+{
+  "comp_league": [
+    { "team": "4 Squares",  "Seed": 1},
+    { "team": "Purple Hippos",  "Seed": 2},
+    { "team": "FTW", "Seed": 3},
+    { "team": "Blueberries",  "Seed": 4},
+    { "team": "$5 Footlongs", "Seed": 5},
+    { "team": "Vibe",  "Seed": 6}
+  ],
+
+  "rec_league": [
+    { "team": "Polar Plungers", "Seed": 1},
+    { "team": "Be Determined",  "Seed": 2},
+    { "team": "Tri Hards",  "Seed": 3},
+    { "team": "Red",  "Seed": 4}
+ 
+  ]
+}
