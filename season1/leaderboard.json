@@ -1,0 +1,18 @@
+{
+    "womens": [
+      { "team": "Team A White", "record": "0-1",  "points": "-4" },
+      { "team": "Team B Black", "record": "1-0",  "points": "+4" },
+      { "team": "Team C Purple", "record": "0-1",  "points": "-3" },
+      { "team": "Team D Blue", "record": "1-0",  "points": "+3" },
+      { "team": "Team E Red", "record": "0-0",  "points": "0" }
+    ],
+  
+    "mens": [
+      { "team": "Team A Black", "record": "1-0",  "points": "+6" },
+      { "team": "Team B Red", "record": "0-1",  "points": "-6" },
+      { "team": "Team C Blue", "record": "1-0",  "points": "-+9" },
+      { "team": "Team D White", "record": "0-1",  "points": "-9" }
+   
+    ]
+  }
+  
