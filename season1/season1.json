@@ -149,8 +149,10 @@
         { "player": "Stephen Hartig", "team": "Team D Blue", "gamesPlayed": 4, "goals": 2, "assists": 1 },
         { "player": "Summur Yu", "team": "Team D Blue", "gamesPlayed": 4, "goals": 2, "assists": 0 },
         { "player": "Zoeb Mohammedshah", "team": "Team D Blue", "gamesPlayed": 3, "goals": 0, "assists": 0 },
-        { "player": "*Dex Dremann", "team": "Team D Blue", "gamesPlayed": 3, "goals": 6, "assists": 3 },
-        { "player": "*Eliott Trotter", "team": "Team D Blue", "gamesPlayed": 2, "goals": 5, "assists": 5 }
+        { "player": "*Dex Dremann", "team": "Team D Blue", "gamesPlayed": 2, "goals": 6, "assists": 2 },
+        { "player": "*Eliott Trotter", "team": "Team D Blue", "gamesPlayed": 2, "goals": 5, "assists": 5 },
+        { "player": "*George Gunter", "team": "Team D Blue", "gamesPlayed": 1, "goals": 0, "assists": 1 }
+
 
         ]
   }
