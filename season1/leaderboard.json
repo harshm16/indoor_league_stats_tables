@@ -8,10 +8,10 @@
     ],
   
     "womens": [
-        { "team": "Team C Blue", "record": "4-1",  "points": "+32" },
-        { "team": "Team A Black", "record": "3-2",  "points": "+6" },
-        { "team": "Team B Red", "record": "2-3",  "points": "-8" },
-        { "team": "Team D White", "record": "1-4",  "points": "-30" }
+        { "team": "Team C Blue", "record": "4-2",  "points": "+29" },
+        { "team": "Team A Black", "record": "4-2",  "points": "+10" },
+        { "team": "Team B Red", "record": "3-3",  "points": "-5" },
+        { "team": "Team D White", "record": "1-5",  "points": "-34" }
     ]
   }
   
