@@ -1,0 +1,158 @@
+{
+    "comp": [      
+   
+            { "player": "Dylan Power", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 2 },
+            { "player": "Cal Tornabene", "team": "Team A Black", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Jack Duncan", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Jerry Kelly", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 3 },
+            { "player": "Juan Amador", "team": "Team A Black", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Reno Brinn", "team": "Team A Black", "gamesPlayed": 1, "goals": 2, "assists": 1 },
+            { "player": "Ryan Shore", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 2 },
+            { "player": "Serene Shehadeh", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Gloria Adeola", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 1 },
+            { "player": "Dani Zapata", "team": "Team A Black", "gamesPlayed": 0, "goals": 0, "assists": 0 },
+            { "player": "Hannah Sahyouni", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Anthony Ruzzo", "team": "Team A Black", "gamesPlayed": 1, "goals": 2, "assists": 3 },
+            { "player": "Aaron Bryant", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+
+            
+            { "player": "Anthony Ji", "team": "Team B Purple", "gamesPlayed": 1, "goals": 2, "assists": 1 },
+            { "player": "Christian Holz", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Elliot Shin", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Jason Silverman", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 5 },
+            { "player": "Max Trotter", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 2 },
+            { "player": "Raymond Mauntel", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Samuel DeVine", "team": "Team B Purple", "gamesPlayed": 1, "goals": 2, "assists": 2 },
+            { "player": "Tommy Thomas Alford", "team": "Team B Purple", "gamesPlayed": 1, "goals": 2, "assists": 3},
+            { "player": "Aubree Zenone", "team": "Team B Purple", "gamesPlayed": 1, "goals": 5, "assists": 0 },
+            { "player": "Hannah Olivares", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 2 },
+            { "player": "Letitia Ho", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 1 },
+            { "player": "Kelly Kulig", "team": "Team B Purple", "gamesPlayed": 1, "goals": 3, "assists": 1 },
+            
+
+            { "player": "Justin Forman", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Laramie Aspergen", "team": "Team C Blue", "gamesPlayed": 1, "goals": 3, "assists": 2 },
+            { "player": "Matthew Mayorga", "team": "Team C Blue", "gamesPlayed": 1, "goals": 2, "assists": 1 },
+            { "player": "Neal Patel", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Tony Wei", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Casey Skapek", "team": "Team C Blue", "gamesPlayed": 1, "goals": 1, "assists": 3 },
+            { "player": "Julia Kasner", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Zasha Medina Perez", "team": "Team C Blue", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Maggie Johnson", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 2 },
+            { "player": "Zach Kieffer", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Benjamin Zhang", "team": "Team C Blue", "gamesPlayed": 1, "goals": 1, "assists": 2 },
+            { "player": "Christian Cameron", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+
+
+            { "player": "Adam Klaus", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 8},
+            { "player": "David Lee", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 1 },
+            { "player": "Eric Klaus", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 4 },
+            { "player": "Jonathan Burrell", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 3 },
+            { "player": "Kyle Bayes", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 4 },
+            { "player": "Matt Gubernick", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 2 },
+            { "player": "Ricky Ramirez", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 3 },
+            { "player": "Max Mercer", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 0 },
+            { "player": "Mario Moran Rubiano", "team": "Team D Orange", "gamesPlayed": 2, "goals": 0, "assists": 1 },
+            { "player": "Courtney Rachek", "team": "Team D Orange", "gamesPlayed": 2, "goals": 6, "assists": 3 },
+            { "player": "Christine Rooney", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 1 },
+            { "player": "Gina Stees", "team": "Team D Orange", "gamesPlayed": 2, "goals": 7, "assists": 3 },
+            { "player": "Adriana Tompary", "team": "Team D Orange", "gamesPlayed": 2, "goals": 5, "assists": 0 },
+
+        
+            { "player": "Joel Willison", "team": "Team E Red", "gamesPlayed": 1, "goals": 1, "assists": 1 },
+            { "player": "John Marsh", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 2 },
+            { "player": "Manan Kothari", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Danny Nguyen", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 4 },
+            { "player": "Jake Smith", "team": "Team E Red", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Stephen Liu", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Daniel Buwalda", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Eva Verner", "team": "Team E Red", "gamesPlayed": 1, "goals": 1, "assists": 4 },
+            { "player": "Katie Bristol (Buwalda)", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Jocelyn Sun", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Riley Fink", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Casey Slinger", "team": "Team E Red", "gamesPlayed": 1, "goals": 3, "assists": 1 },
+            { "player": "Joe Cerello", "team": "Team E Red", "gamesPlayed": 1, "goals": 1, "assists": 2 }
+
+          
+          
+    ],
+  
+    "rec": [
+
+            
+            { "player": "Sunny Yun", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 2 },
+            { "player": "Adrian Usman", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "David Lei", "team": "Team A Black", "gamesPlayed": 1, "goals": 2, "assists": 1 },
+            { "player": "Sergio Diaz", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 2 },
+            { "player": "Sai Girap", "team": "Team A Black", "gamesPlayed": 1, "goals": 4, "assists": 0 },
+            { "player": "Rogers Xie", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 3 },
+            { "player": "Chris Zhou", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 3 },
+            { "player": "Ian Crane", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 1 },
+            { "player": "Mina Ahumada", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Antonia Van Twisk", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Lori Lu", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Jocelyn Tam", "team": "Team A Black", "gamesPlayed": 1, "goals": 3, "assists": 0 },
+            { "player": "Somto Agboifoh", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+
+
+            { "player": "Jack Wolf", "team": "Team B Purple", "gamesPlayed": 1, "goals": 3, "assists": 1 },
+            { "player": "Grant Carlson", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Jack Lenehan", "team": "Team B Purple", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Nik Rosas", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 1 },
+            { "player": "Jorge Rangel", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Byron Arellano", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 4 },
+            { "player": "Rory Coleman", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Alicia Skulsky", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Amy Yang", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Naomi Clear", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Andi Tompary", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            
+            
+        
+            { "player": "Don Juan Diaz", "team": "Team C Blue", "gamesPlayed": 1, "goals": 1, "assists": 1 },
+            { "player": "Derek O'meara", "team": "Team C Blue", "gamesPlayed": 1, "goals": 1, "assists": 4 },
+            { "player": "Parker Swanson", "team": "Team C Blue", "gamesPlayed": 1, "goals": 3, "assists": 1 },
+            { "player": "Darwin Chen", "team": "Team C Blue", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Apet Sali", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Zoeb Mohammedshah", "team": "Team C Blue", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Francesco Scivittaro", "team": "Team C Blue", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Kevin Liu", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Ernesto Popoca", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Alyssa Lane", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 4 },
+            { "player": "Casey Canilla", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 3 },
+            { "player": "Rachel Xiao", "team": "Team C Blue", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Liz Piro", "team": "Team C Blue", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Julia Giannini", "team": "Team C Blue", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+
+
+            { "player": "Chris Jones", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 1 },
+            { "player": "Jim Apple", "team": "Team D Orange", "gamesPlayed": 2, "goals": 0, "assists": 0 },
+            { "player": "Ted Brady", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 0 },
+            { "player": "Isaiah Cochran", "team": "Team D Orange", "gamesPlayed": 2, "goals": 4, "assists": 5},
+            { "player": "Stephan Hartig", "team": "Team D Orange", "gamesPlayed": 2, "goals": 2, "assists": 0 },
+            { "player": "Rica Garcia", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 0 },
+            { "player": "Haili Cochran", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 3 },
+            { "player": "Hannah Huxter", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 0 },
+            { "player": "Anna Martinello", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 3 },
+            { "player": "Winston Cheung", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 1 },
+            { "player": "Aubree Zenone", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 3 },
+            { "player": "Kelly Kulig", "team": "Team D Orange", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Tyler Tokovsky", "team": "Team D Orange", "gamesPlayed": 2, "goals": 0, "assists": 2 },
+            { "player": "Edward Pang", "team": "Team D Orange", "gamesPlayed": 1, "goals": 0, "assists": 3 },
+
+            { "player": "Anthoine Godin", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Kyle Mattimore", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Leonardo Aranda", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Angela Gavic", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Angela Chen", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "Rosanna Smith", "team": "Team E Red", "gamesPlayed": 1, "goals": 1, "assists": 0 },
+            { "player": "Summer Matthes", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Ryan Shore", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 6 },
+            { "player": "Hung Nguyen", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "Julie Shizas", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 0 },
+            { "player": "Kevin Zhang", "team": "Team E Red", "gamesPlayed": 1, "goals": 3, "assists": 1 },
+            { "player": "Calin Harris", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 }
+
+    ]
+  }
+  
