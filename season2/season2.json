@@ -78,8 +78,6 @@
     ],
   
     "rec": [
-
-            
             { "player": "Sunny Yun", "team": "Team A Black", "gamesPlayed": 1, "goals": 1, "assists": 2 },
             { "player": "Adrian Usman", "team": "Team A Black", "gamesPlayed": 1, "goals": 0, "assists": 1 },
             { "player": "David Lei", "team": "Team A Black", "gamesPlayed": 1, "goals": 2, "assists": 1 },
@@ -105,7 +103,7 @@
             { "player": "Alicia Skulsky", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 1 },
             { "player": "Amy Yang", "team": "Team B Purple", "gamesPlayed": 1, "goals": 1, "assists": 0 },
             { "player": "Naomi Clear", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 0 },
-            { "player": "Andi Tompary", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 1 },
+            { "player": "**Andi Tompary", "team": "Team B Purple", "gamesPlayed": 1, "goals": 0, "assists": 1 },
             
             
         
@@ -133,9 +131,9 @@
             { "player": "Rica Garcia", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 0 },
             { "player": "Haili Cochran", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 3 },
             { "player": "Hannah Huxter", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 0 },
-            { "player": "Anna Martinello", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 3 },
-            { "player": "Winston Cheung", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 1 },
-            { "player": "Aubree Zenone", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 3 },
+            { "player": "**Anna Martinello", "team": "Team D Orange", "gamesPlayed": 2, "goals": 1, "assists": 3 },
+            { "player": "**Winston Cheung", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 1 },
+            { "player": "**Aubree Zenone", "team": "Team D Orange", "gamesPlayed": 2, "goals": 3, "assists": 3 },
             { "player": "Kelly Kulig", "team": "Team D Orange", "gamesPlayed": 1, "goals": 0, "assists": 0 },
             { "player": "Tyler Tokovsky", "team": "Team D Orange", "gamesPlayed": 2, "goals": 0, "assists": 2 },
             { "player": "Edward Pang", "team": "Team D Orange", "gamesPlayed": 1, "goals": 0, "assists": 3 },
@@ -147,8 +145,8 @@
             { "player": "Angela Chen", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 1 },
             { "player": "Rosanna Smith", "team": "Team E Red", "gamesPlayed": 1, "goals": 1, "assists": 0 },
             { "player": "Summer Matthes", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 0 },
-            { "player": "Ryan Shore", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 6 },
-            { "player": "Hung Nguyen", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
+            { "player": "**Ryan Shore", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 6 },
+            { "player": "**Hung Nguyen", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 },
             { "player": "Julie Shizas", "team": "Team E Red", "gamesPlayed": 1, "goals": 0, "assists": 0 },
             { "player": "Kevin Zhang", "team": "Team E Red", "gamesPlayed": 1, "goals": 3, "assists": 1 },
             { "player": "Calin Harris", "team": "Team E Red", "gamesPlayed": 1, "goals": 2, "assists": 0 }
