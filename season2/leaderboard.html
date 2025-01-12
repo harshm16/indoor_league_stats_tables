@@ -117,7 +117,7 @@
 
 <!-- Competitive League -->
 <div class="table-container left-table">
-  <div class="league-heading">Women's Division</div>
+  <div class="league-heading">Comp. Division</div>
   <table id="sortable-table">
     <thead>
       <tr>
@@ -134,7 +134,7 @@
 
 <!-- Recreational League -->
 <div class="table-container right-table">
-  <div class="league-heading">Men's Division</div>
+  <div class="league-heading">Rec. Division</div>
   <table id="sortable-table-recreational">
     <thead>
       <tr>
@@ -236,7 +236,7 @@
   sortColumn = 'record';
   // Fetch competitive league data
   fetchData().then(leaderboardData => {
-    compData = leaderboardData.womens;
+    compData = leaderboardData.comp;
 //     compData.sort((a, b) => sortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
 //     compData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
 //       compData.sort((a, b) => {
@@ -261,7 +261,7 @@
   recreationalSortColumn = 'record';
   // Fetch recreational league data
   fetchData().then(leaderboardData => {
-    recreationalData = leaderboardData.mens;
+    recreationalData = leaderboardData.rec;
     //recreationalData.sort((a, b) => recreationalSortOrder ? d3.descending(a.team, b.team) : -d3.descending(a.team, b.team));
     // recreationalData.sort((a, b) => sortOrder ? d3.descending(+a.points, +b.points) : -d3.descending(+a.points, +b.points));
     // recreationalData.sort((a, b) => {

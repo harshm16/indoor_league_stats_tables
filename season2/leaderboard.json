@@ -1,5 +1,5 @@
 {
-    "mens": [
+    "comp": [
         { "team": "Team D", "record": "2-0",  "points": "+8" },
         { "team": "Team B", "record": "1-0",  "points": "+5" },
         { "team": "Team E", "record": "0-1",  "points": "-1" },
@@ -7,7 +7,7 @@
         { "team": "Team C", "record": "0-1",  "points": "-7" }
     ],
   
-    "womens": [
+    "rec": [
         { "team": "Team A", "record": "1-0",  "points": "+5" },
         { "team": "Team C", "record": "1-0",  "points": "+3" },
         { "team": "Team D", "record": "1-1",  "points": "-2" },
