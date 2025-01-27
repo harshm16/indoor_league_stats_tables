@@ -11,8 +11,8 @@
         { "team": "Team C", "record": "2-0",  "points": "+11" },
         { "team": "Team A", "record": "2-1",  "points": "+8" },
         { "team": "Team B", "record": "1-2",  "points": "-9" },
-        { "team": "Team E", "record": "1-2",  "points": "-1" },
-        { "team": "Team D", "record": "1-2",  "points": "-9" }
+        { "team": "Team D", "record": "1-2",  "points": "-9" },
+        { "team": "Team E", "record": "1-2",  "points": "-1" }
 
     ]
   }
