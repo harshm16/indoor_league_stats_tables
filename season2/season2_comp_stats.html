@@ -6,16 +6,16 @@
   <title>Scrollable Sortable Table with d3.js</title>
   <style>
     body {
-        font-family: 'Big Shoulders Text', sans-serif; /* Updated font-family */
-      }
+        font-family: 'Big Shoulders Text', sans-serif;
+    }
 
     table {
       border-collapse: collapse;
       width: 100%;
       margin-top: 20px;
-      font-size: 14px; /* Added font-size */
-      font-family: 'Big Shoulders Text', sans-serif; /* Added font-family */
-      font-weight: bold; /* Added font-weight */
+      font-size: 14px;
+      font-family: 'Big Shoulders Text', sans-serif;
+      font-weight: bold;
     }
 
     th, td {
@@ -51,7 +51,6 @@
       background-color: rgba(65, 182, 230, 0.2);
     }
 
-    /* Media queries for responsive design */
     @media only screen and (max-width: 600px) {
       th, td {
         font-size: 12px;
@@ -76,10 +75,11 @@
       <tr>
         <th data-column="player">Player <span class="sort-arrow"></span></th>
         <th data-column="team">Team <span class="sort-arrow"></span></th>
-        <th data-column="gamesPlayed">Games<span class="sort-arrow"></span></th>
+        <th data-column="gamesPlayed">Games <span class="sort-arrow"></span></th>
         <th data-column="goals">Goals <span class="sort-arrow"></span></th>
         <th data-column="assists">Assists <span class="sort-arrow"></span></th>
         <th data-column="overall">Goals + Assists <span class="sort-arrow"></span></th>
+        <th data-column="perGame">Goals + Assists per Game <span class="sort-arrow"></span></th>
       </tr>
     </thead>
     <tbody>
@@ -90,88 +90,84 @@
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-  // Fetch data from JSON file
   fetch('https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/main/season2/season2.json')
     .then(response => response.json())
     .then(data => {
-      // Use the first league data for this example, you can modify as needed
       const leagueData = data.comp;
-
-      // Initial sort order (ascending)
       let sortOrder = true;
       let sortColumn = null;
 
-      // Function to render the table
+      function formatPerGame(overall, games) {
+        if (games === 0) return "0";
+        let perGame = overall / games;
+        return perGame % 1 === 0 ? perGame.toFixed(0) : perGame.toFixed(2);
+      }
+
       function renderTable(data) {
         const tableBody = d3.select('#sortable-table tbody');
-
-        // Remove existing rows
         tableBody.selectAll('*').remove();
 
-        // Append new rows
         const rows = tableBody.selectAll('tr')
           .data(data)
           .enter()
           .append('tr');
 
-        // Append cells within each row
         rows.selectAll('td')
-          .data(d => [...Object.values(d), d.goals + d.assists])
+          .data(d => {
+            let overall = d.goals + d.assists;
+            let perGame = formatPerGame(overall, d.gamesPlayed);
+            return [
+              d.player,
+              d.team,
+              d.gamesPlayed,
+              d.goals,
+              d.assists,
+              overall,
+              perGame
+            ];
+          })
           .enter()
           .append('td')
-          .text(d => d);
+          .text((d, i) =>
+            i < 2 ? d : (i === 6 ? d : Math.round(d)) // Keep Player & Team as text, perGame formatted, others whole numbers
+          );
       }
 
-      // Function to update sort arrows
       function updateSortArrows() {
         d3.selectAll('#sortable-table th .sort-arrow').text('');
-
         if (sortColumn !== null) {
           const arrowText = sortOrder ? '↑' : '↓';
           d3.select(`#sortable-table th[data-column="${sortColumn}"] .sort-arrow`).text(arrowText);
         }
       }
 
-      // Add sorting functionality using d3.js
       d3.selectAll('#sortable-table th')
         .on('click', function () {
           const column = d3.select(this).attr('data-column');
-
-          // Toggle sort order if the same column is clicked
           sortOrder = column === sortColumn ? !sortOrder : true;
-
-          // Update the sort column
           sortColumn = column;
 
-          // Sort data based on the selected column and sort order
           leagueData.sort((a, b) => {
-            const valueA = column === 'overall' ? a.goals + a.assists : a[column];
-            const valueB = column === 'overall' ? b.goals + b.assists : b[column];
-            const comparison = d3.ascending(valueA, valueB);
-
-            return sortOrder ? comparison : -comparison;
+            let valueA, valueB;
+            if (column === 'overall') {
+              valueA = a.goals + a.assists;
+              valueB = b.goals + b.assists;
+            } else if (column === 'perGame') {
+              valueA = (a.goals + a.assists) / a.gamesPlayed || 0;
+              valueB = (b.goals + b.assists) / b.gamesPlayed || 0;
+            } else {
+              valueA = a[column];
+              valueB = b[column];
+            }
+            return sortOrder ? d3.ascending(valueA, valueB) : d3.descending(valueA, valueB);
           });
 
-          // Render the sorted table
           renderTable(leagueData);
-
-          // Update sort arrows
           updateSortArrows();
         });
 
-      // Initial render
       sortColumn = 'overall';
-      leagueData.sort((a, b) => sortOrder ? d3.ascending(a.player, b.player) : -d3.ascending(a.player, b.player));
-      leagueData.sort((a, b) => sortOrder ? d3.descending(a.assists, b.assists) : -d3.descending(a.assists, b.assists));
-      leagueData.sort((a, b) => sortOrder ? d3.descending(a.goals, b.goals) : -d3.descending(a.goals, b.goals));
-      leagueData.sort((a, b) => {
-        if (sortColumn === 'overall') {
-          const overallA = a.goals + a.assists;
-          const overallB = b.goals + b.assists;
-          return sortOrder ? overallB - overallA: overallA - overallB;
-        }
-      });
-
+      leagueData.sort((a, b) => d3.descending(a.goals + a.assists, b.goals + b.assists));
       renderTable(leagueData);
       updateSortArrows();
     })
