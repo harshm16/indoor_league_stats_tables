@@ -10,9 +10,9 @@
     "rec": [
         { "team": "Team C", "record": "4-0",  "points": "+18" },
         { "team": "Team A", "record": "2-2",  "points": "+5" },
-        { "team": "Team D", "record": "2-3",  "points": "-5" },
-        { "team": "Team E", "record": "1-2",  "points": "-1" },
-        { "team": "Team B", "record": "1-3",  "points": "-17" }
+        { "team": "Team D", "record": "2-2",  "points": "-1" },
+        { "team": "Team B", "record": "1-3",  "points": "-17" },
+        { "team": "Team E", "record": "1-3",  "points": "-5" }
 
     ]
   }
