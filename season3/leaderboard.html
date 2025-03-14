@@ -117,7 +117,7 @@
 
 <!-- Competitive League -->
 <div class="table-container left-table">
-  <div class="league-heading">Comp. Division</div>
+  <div class="league-heading">Power Pool</div>
   <table id="sortable-table">
     <thead>
       <tr>
@@ -134,7 +134,7 @@
 
 <!-- Recreational League -->
 <div class="table-container right-table">
-  <div class="league-heading">Rec. Division</div>
+  <div class="league-heading">Spirit Pool</div>
   <table id="sortable-table-recreational">
     <thead>
       <tr>
@@ -154,7 +154,7 @@
   // Fetch data from the leaderboard.json file
   async function fetchData() {
     try {
-      const response = await fetch('https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/main/season2/leaderboard.json');
+      const response = await fetch('https://raw.githubusercontent.com/harshm16/indoor_league_stats_tables/main/season3/leaderboard.json');
       const data = await response.json();
       return data;
     } catch (error) {
