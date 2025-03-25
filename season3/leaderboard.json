@@ -1,17 +1,17 @@
 {
     "comp": [
-        { "team": "Non Toxic J's", "record": "3-0",  "points": "+8" },
-        { "team": "Freeze Tag", "record": "2-1",  "points": "+4" },
-        { "team": "Lake Effect", "record": "1-2",  "points": "-8" },
-        { "team": "Chicken Parm", "record": "0-3",  "points": "-8" }
+        { "team": "Non Toxic J's", "record": "4-0",  "points": "+14" },
+        { "team": "Freeze Tag", "record": "3-1",  "points": "+5" },
+        { "team": "Lake Effect", "record": "1-3",  "points": "-9" },
+        { "team": "Chicken Parm", "record": "0-4",  "points": "-14" }
     ],
   
     "rec": [
-        { "team": "Chi-cks Mix", "record": "3-0",  "points": "+20" },
-        { "team": "UD", "record": "2-1",  "points": "+15" },
+        { "team": "Chi-cks Mix", "record": "4-0",  "points": "+21" },
+        { "team": "UD", "record": "2-2",  "points": "+14" },
+        { "team": "Final Cut", "record": "2-2",  "points": "-1" },
         { "team": "Fight Club", "record": "2-2",  "points": "-5" },
-        { "team": "Final Cut", "record": "1-2",  "points": "-10" },
-        { "team": "Breakside Bandits", "record": "0-3",  "points": "-18" }
+        { "team": "Breakside Bandits", "record": "0-4",  "points": "-27" }
 
     ]
   }
